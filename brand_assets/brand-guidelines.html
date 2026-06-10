@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LK Nail Salon — Brand Guidelines</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cardo:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── CSS VARIABLES ──────────────────────────────────── */
+    :root {
+      --gold-deep:     #8A5E28;
+      --gold-primary:  #C1934B;
+      --gold-warm:     #D4A96A;
+      --gold-light:    #E2BC92;
+      --gold-pale:     #EED89F;
+      --gold-highlight:#FFF2A6;
+
+      --black:         #0D0C0B;
+      --ink:           #1B1D1C;
+      --ink-2:         #2A2C2B;
+      --ink-3:         #3A3C3B;
+      --mid:           #707070;
+      --subtle:        #ABABAB;
+      --surface:       #F7F3EE;
+      --white:         #FFFFFF;
+
+      --gold-glow:     rgba(193,147,75,0.35);
+      --gold-dim:      rgba(193,147,75,0.12);
+
+      --font-brand:    'Dream Avenue', 'Cardo', Georgia, serif;
+      --font-heading:  'Cardo', Georgia, serif;
+      --font-body:     'Lato', system-ui, sans-serif;
+
+      --radius:        4px;
+      --radius-lg:     10px;
+    }
+
+    /* ─── RESET ──────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--surface);
+      color: var(--ink);
+      line-height: 1.7;
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────────────── */
+    .wrap {
+      max-width: min(1100px, 92vw);
+      margin: 0 auto;
+    }
+
+    section {
+      padding: clamp(4rem, 8vw, 7rem) 0;
+    }
+
+    section + section {
+      border-top: 1px solid rgba(193,147,75,0.18);
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────── */
+    .site-header {
+      background: var(--ink);
+      padding: clamp(3rem, 6vw, 5rem) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .site-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 20% 50%, rgba(193,147,75,0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 80% 50%, rgba(193,147,75,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .site-header img {
+      width: clamp(160px, 20vw, 260px);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .site-header h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--gold-light);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      position: relative;
+    }
+
+    .site-header p {
+      color: var(--subtle);
+      font-size: .875rem;
+      letter-spacing: .08em;
+      margin-top: .6rem;
+      position: relative;
+    }
+
+    /* ─── SECTION KICKER ─────────────────────────────────── */
+    .kicker {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      margin-bottom: 1rem;
+    }
+    .kicker::before {
+      content: '';
+      width: 22px; height: 1.5px;
+      background: var(--gold-primary);
+      display: block;
+    }
+
+    /* ─── SECTION HEADINGS ───────────────────────────────── */
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: -.025em;
+      line-height: 1.2;
+      color: var(--ink);
+      margin-bottom: .5rem;
+    }
+
+    .section-sub {
+      font-size: .9rem;
+      color: var(--mid);
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    /* ─── DIVIDER ────────────────────────────────────────── */
+    .divider {
+      width: 48px; height: 2px;
+      background: linear-gradient(90deg, var(--gold-primary), var(--gold-pale));
+      margin: 1rem 0 2.5rem;
+    }
+
+    /* ─── COLOR PALETTE ──────────────────────────────────── */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .swatch {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+      transition: transform .25s cubic-bezier(0.16,1,0.3,1),
+                  box-shadow .25s cubic-bezier(0.16,1,0.3,1);
+    }
+    .swatch:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(0,0,0,.1), 0 16px 40px rgba(0,0,0,.12);
+    }
+
+    .swatch-block {
+      height: 100px;
+    }
+
+    .swatch-info {
+      background: var(--white);
+      padding: .75rem 1rem;
+    }
+
+    .swatch-name {
+      font-weight: 700;
+      font-size: .8rem;
+      letter-spacing: .04em;
+      color: var(--ink);
+      display: block;
+      margin-bottom: .2rem;
+    }
+
+    .swatch-hex {
+      font-family: 'Courier New', monospace;
+      font-size: .75rem;
+      color: var(--mid);
+    }
+
+    .swatch-role {
+      font-size: .7rem;
+      color: var(--subtle);
+      margin-top: .25rem;
+      display: block;
+    }
+
+    /* ─── TYPOGRAPHY SPECIMENS ───────────────────────────── */
+    .type-specimen {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 2rem 2.25rem;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    @media (max-width: 640px) {
+      .type-specimen { grid-template-columns: 1fr; }
+    }
+
+    .type-meta {
+      font-size: .75rem;
+      color: var(--mid);
+      line-height: 1.8;
+    }
+
+    .type-meta strong {
+      display: block;
+      font-size: .7rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: .25rem;
+    }
+
+    .type-meta code {
+      background: var(--surface);
+      padding: .15em .4em;
+      border-radius: 3px;
+      font-size: .7rem;
+    }
+
+    /* font specimens */
+    .t-display {
+      font-family: var(--font-heading);
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 700;
+      letter-spacing: -.03em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .t-display-italic {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -.01em;
+      line-height: 1.2;
+      color: var(--gold-primary);
+    }
+
+    .t-heading {
+      font-family: var(--font-heading);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 700;
+      letter-spacing: -.02em;
+      color: var(--ink);
+    }
+
+    .t-sub {
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      font-weight: 300;
+      color: var(--ink-3);
+      letter-spacing: .02em;
+    }
+
+    .t-body {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--mid);
+    }
+
+    .t-caption {
+      font-family: var(--font-body);
+      font-size: .8125rem;
+      font-weight: 400;
+      color: var(--subtle);
+      letter-spacing: .01em;
+    }
+
+    .t-kicker-demo {
+      font-family: var(--font-body);
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+    }
+
+    /* ─── TYPE SCALE TABLE ───────────────────────────────── */
+    .scale-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .875rem;
+    }
+
+    .scale-table th {
+      text-align: left;
+      padding: .6rem 1rem;
+      font-size: .7rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      border-bottom: 1.5px solid var(--gold-dim);
+      font-weight: 700;
+    }
+
+    .scale-table td {
+      padding: .85rem 1rem;
+      color: var(--mid);
+      border-bottom: 1px solid rgba(0,0,0,.05);
+      vertical-align: middle;
+    }
+
+    .scale-table tr:last-child td { border-bottom: none; }
+
+    .scale-table td:first-child {
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .scale-table .preview-cell {
+      color: var(--ink);
+    }
+
+    /* ─── LOGO USAGE ─────────────────────────────────────── */
+    .logo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .logo-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+    }
+
+    .logo-canvas {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2.5rem;
+      min-height: 200px;
+    }
+
+    .logo-canvas img {
+      max-width: 160px;
+      width: 100%;
+    }
+
+    .logo-card-meta {
+      background: var(--white);
+      padding: 1rem 1.25rem;
+      font-size: .78rem;
+      color: var(--mid);
+    }
+
+    .logo-card-meta strong {
+      display: block;
+      color: var(--ink);
+      font-size: .8rem;
+      margin-bottom: .25rem;
+    }
+
+    /* ─── BUTTON SHOWCASE ────────────────────────────────── */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    .btn-primary {
+      font-family: var(--font-body);
+      font-size: .875rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: linear-gradient(135deg, var(--gold-primary), var(--gold-pale));
+      padding: .85rem 2.2rem;
+      border-radius: var(--radius);
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      box-shadow: 0 4px 18px var(--gold-glow);
+      transition: transform .22s cubic-bezier(0.16,1,0.3,1),
+                  box-shadow .22s cubic-bezier(0.16,1,0.3,1);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 32px var(--gold-glow);
+    }
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--gold-primary);
+      outline-offset: 3px;
+    }
+    .btn-primary:active { transform: translateY(-1px); }
+
+    .btn-outline {
+      font-family: var(--font-body);
+      font-size: .875rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      background: transparent;
+      padding: .8rem 2.1rem;
+      border-radius: var(--radius);
+      border: 1.5px solid var(--gold-primary);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform .22s cubic-bezier(0.16,1,0.3,1),
+                  background .22s cubic-bezier(0.16,1,0.3,1),
+                  color .22s cubic-bezier(0.16,1,0.3,1),
+                  box-shadow .22s cubic-bezier(0.16,1,0.3,1);
+    }
+    .btn-outline:hover {
+      background: var(--gold-dim);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 24px var(--gold-glow);
+    }
+    .btn-outline:focus-visible {
+      outline: 2px solid var(--gold-primary);
+      outline-offset: 3px;
+    }
+    .btn-outline:active { transform: translateY(-1px); }
+
+    .btn-ghost {
+      font-family: var(--font-body);
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      color: var(--ink);
+      background: transparent;
+      padding: .8rem 1.8rem;
+      border-radius: var(--radius);
+      border: 1px solid rgba(0,0,0,.12);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: transform .22s cubic-bezier(0.16,1,0.3,1),
+                  border-color .22s,
+                  box-shadow .22s;
+    }
+    .btn-ghost:hover {
+      border-color: var(--gold-warm);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 18px rgba(0,0,0,.08);
+    }
+    .btn-ghost:focus-visible {
+      outline: 2px solid var(--gold-primary);
+      outline-offset: 3px;
+    }
+
+    /* ─── DARK BG SECTION ────────────────────────────────── */
+    .dark-section {
+      background: var(--ink);
+      color: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dark-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 15% 40%, rgba(193,147,75,0.1) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 50% at 85% 70%, rgba(193,147,75,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .dark-section .section-title { color: var(--gold-light); }
+    .dark-section .kicker { color: var(--gold-pale); }
+    .dark-section .kicker::before { background: var(--gold-pale); }
+    .dark-section .section-sub { color: var(--subtle); }
+    .dark-section .divider {
+      background: linear-gradient(90deg, var(--gold-warm), transparent);
+    }
+
+    /* ─── GRADIENT SHOWCASE ──────────────────────────────── */
+    .gradient-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .gradient-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06), 0 8px 24px rgba(0,0,0,.08);
+    }
+
+    .gradient-block {
+      height: 120px;
+    }
+
+    .gradient-info {
+      background: var(--white);
+      padding: .85rem 1.1rem;
+    }
+
+    .gradient-info strong {
+      display: block;
+      font-size: .8rem;
+      color: var(--ink);
+      margin-bottom: .3rem;
+    }
+
+    .gradient-info code {
+      font-size: .68rem;
+      color: var(--mid);
+      font-family: 'Courier New', monospace;
+    }
+
+    /* ─── SPACING SHOWCASE ───────────────────────────────── */
+    .spacing-row {
+      display: flex;
+      flex-direction: column;
+      gap: .75rem;
+    }
+
+    .spacing-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .spacing-bar-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+    }
+
+    .spacing-bar {
+      height: 20px;
+      background: linear-gradient(90deg, var(--gold-primary), var(--gold-pale));
+      border-radius: 2px;
+      opacity: .8;
+    }
+
+    .spacing-label {
+      font-family: 'Courier New', monospace;
+      font-size: .75rem;
+      color: var(--mid);
+      min-width: 80px;
+    }
+
+    .spacing-name {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--ink);
+      min-width: 100px;
+    }
+
+    /* ─── DO / DON'T ─────────────────────────────────────── */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    @media (max-width: 600px) { .rules-grid { grid-template-columns: 1fr; } }
+
+    .rule-card {
+      border-radius: var(--radius-lg);
+      padding: 1.5rem 1.75rem;
+      background: var(--white);
+      box-shadow: 0 2px 8px rgba(0,0,0,.04), 0 8px 24px rgba(0,0,0,.06);
+    }
+
+    .rule-card.do {
+      border-top: 3px solid var(--gold-primary);
+    }
+
+    .rule-card.dont {
+      border-top: 3px solid #c0392b;
+    }
+
+    .rule-tag {
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+      display: inline-block;
+    }
+
+    .rule-card.do .rule-tag { color: var(--gold-primary); }
+    .rule-card.dont .rule-tag { color: #c0392b; }
+
+    .rule-card ul {
+      padding-left: 1.1rem;
+    }
+
+    .rule-card li {
+      font-size: .85rem;
+      color: var(--mid);
+      line-height: 1.6;
+      margin-bottom: .4rem;
+    }
+
+    /* ─── MOTION ─────────────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      body.js-ready .reveal {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity .6s cubic-bezier(0.16,1,0.3,1),
+                    transform .6s cubic-bezier(0.16,1,0.3,1);
+      }
+      body.js-ready .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      text-align: center;
+      padding: 3rem;
+    }
+
+    footer p {
+      font-size: .78rem;
+      color: var(--ink-3);
+      letter-spacing: .06em;
+    }
+
+    footer span {
+      color: var(--gold-deep);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ─── HEADER ──────────────────────────────────────────── -->
+  <header class="site-header">
+    <img src="logo-1-2048x1258.png" alt="LK Nail Salon Logo" />
+    <h1>Brand Guidelines</h1>
+    <p>Visual Identity System · Version 1.0 · 2025</p>
+  </header>
+
+  <!-- ─── LOGO USAGE ──────────────────────────────────────── -->
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Brand Mark</span>
+      <h2 class="section-title reveal">Logo Usage</h2>
+      <div class="divider reveal"></div>
+      <p class="section-sub reveal">The LK Nail Salon logo must always appear with adequate clear space and on approved backgrounds only.</p>
+
+      <div class="logo-grid">
+        <div class="logo-card reveal">
+          <div class="logo-canvas" style="background:#1B1D1C;">
+            <img src="logo-1-2048x1258.png" alt="LK Logo on dark" />
+          </div>
+          <div class="logo-card-meta">
+            <strong>Primary — Dark Background</strong>
+            Use on dark/black backgrounds. This is the preferred treatment.
+          </div>
+        </div>
+        <div class="logo-card reveal">
+          <div class="logo-canvas" style="background: linear-gradient(135deg,#C1934B,#EED89F);">
+            <img src="logo-1-2048x1258.png" alt="LK Logo on gold" />
+          </div>
+          <div class="logo-card-meta">
+            <strong>On Gold Gradient</strong>
+            Acceptable for special promotions and seasonal campaigns.
+          </div>
+        </div>
+        <div class="logo-card reveal">
+          <div class="logo-canvas" style="background:#F7F3EE; filter:invert(1) hue-rotate(180deg);">
+            <img src="logo-1-2048x1258.png" alt="LK Logo on light" style="filter:invert(1);" />
+          </div>
+          <div class="logo-card-meta">
+            <strong>Light Background — Dark Version</strong>
+            Use a dark/black version of the logo on light backgrounds.
+          </div>
+        </div>
+        <div class="logo-card reveal">
+          <div class="logo-canvas" style="background:repeating-linear-gradient(45deg,#ddd 0,#ddd 1px,#f5f5f5 0,#f5f5f5 50%) 0/8px 8px; position:relative;">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(193,0,0,0.08);">
+              <div style="font-size:2rem;opacity:.3;">✗</div>
+            </div>
+          </div>
+          <div class="logo-card-meta" style="border-top:2px solid #c0392b;">
+            <strong style="color:#c0392b;">Never — Patterned or Busy Background</strong>
+            Do not place the logo on complex textures or competing imagery.
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:2.5rem; background:var(--white); border-radius:var(--radius-lg); padding:1.5rem 2rem; box-shadow:0 2px 8px rgba(0,0,0,.04);">
+        <p class="kicker" style="margin-bottom:.75rem;">Clear Space Rule</p>
+        <p style="font-size:.875rem; color:var(--mid);">Always maintain a minimum clear space equal to the height of the crown symbol on all four sides of the logo. Never crowd the logo with other elements.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COLOR PALETTE ───────────────────────────────────── -->
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Visual Identity</span>
+      <h2 class="section-title reveal">Color Palette</h2>
+      <div class="divider reveal"></div>
+
+      <p class="kicker" style="margin-bottom:1rem;">Primary Gold Palette</p>
+      <div class="palette-grid" style="margin-bottom:2.5rem;">
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#8A5E28;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Gold Deep</span>
+            <span class="swatch-hex">#8A5E28</span>
+            <span class="swatch-role">Rich amber, emphasis text</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:linear-gradient(135deg,#C1934B,#D4A96A);"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Gold Primary</span>
+            <span class="swatch-hex">#C1934B</span>
+            <span class="swatch-role">CTAs, accents, kickers</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#D4A96A;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Gold Warm</span>
+            <span class="swatch-hex">#D4A96A</span>
+            <span class="swatch-role">Hover states, borders</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#E2BC92;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Gold Light</span>
+            <span class="swatch-hex">#E2BC92</span>
+            <span class="swatch-role">Text on dark backgrounds</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#EED89F;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Gold Pale</span>
+            <span class="swatch-hex">#EED89F</span>
+            <span class="swatch-role">Gradient endpoints, highlights</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#FFF2A6;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Gold Highlight</span>
+            <span class="swatch-hex">#FFF2A6</span>
+            <span class="swatch-role">Sparkle accents, shimmer</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="kicker" style="margin-bottom:1rem;">Dark & Neutral Palette</p>
+      <div class="palette-grid">
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#0D0C0B; border:1px solid rgba(255,255,255,.06);"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Black</span>
+            <span class="swatch-hex">#0D0C0B</span>
+            <span class="swatch-role">Footer, deepest bg</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#1B1D1C;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Ink</span>
+            <span class="swatch-hex">#1B1D1C</span>
+            <span class="swatch-role">Primary dark background</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#3A3C3B;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Ink 3</span>
+            <span class="swatch-hex">#3A3C3B</span>
+            <span class="swatch-role">Dark cards, elevated surfaces</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#707070;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Mid</span>
+            <span class="swatch-hex">#707070</span>
+            <span class="swatch-role">Body text, secondary copy</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#ABABAB;"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Subtle</span>
+            <span class="swatch-hex">#ABABAB</span>
+            <span class="swatch-role">Captions, meta text</span>
+          </div>
+        </div>
+        <div class="swatch reveal">
+          <div class="swatch-block" style="background:#F7F3EE; border:1px solid rgba(0,0,0,.07);"></div>
+          <div class="swatch-info">
+            <span class="swatch-name">Surface</span>
+            <span class="swatch-hex">#F7F3EE</span>
+            <span class="swatch-role">Page background, light sections</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── GRADIENTS ───────────────────────────────────────── -->
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Color System</span>
+      <h2 class="section-title reveal">Brand Gradients</h2>
+      <div class="divider reveal"></div>
+
+      <div class="gradient-grid">
+        <div class="gradient-card reveal">
+          <div class="gradient-block" style="background:linear-gradient(135deg,#8A5E28,#C1934B,#EED89F);"></div>
+          <div class="gradient-info">
+            <strong>Signature Gold</strong>
+            <code>135deg · #8A5E28 → #C1934B → #EED89F</code>
+          </div>
+        </div>
+        <div class="gradient-card reveal">
+          <div class="gradient-block" style="background:linear-gradient(135deg,#C1934B,#FFF2A6);"></div>
+          <div class="gradient-info">
+            <strong>Champagne</strong>
+            <code>135deg · #C1934B → #FFF2A6</code>
+          </div>
+        </div>
+        <div class="gradient-card reveal">
+          <div class="gradient-block" style="background:linear-gradient(180deg,#1B1D1C 0%,#2A2C2B 100%);"></div>
+          <div class="gradient-info">
+            <strong>Dark Stage</strong>
+            <code>180deg · #1B1D1C → #2A2C2B</code>
+          </div>
+        </div>
+        <div class="gradient-card reveal">
+          <div class="gradient-block" style="background:radial-gradient(ellipse at 30% 50%, rgba(193,147,75,0.35) 0%, transparent 65%), #1B1D1C;"></div>
+          <div class="gradient-info">
+            <strong>Gold Glow (Dark)</strong>
+            <code>radial gold glow over Ink background</code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TYPOGRAPHY ──────────────────────────────────────── -->
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Visual Identity</span>
+      <h2 class="section-title reveal">Typography</h2>
+      <div class="divider reveal"></div>
+
+      <!-- Specimens -->
+      <div class="type-specimen reveal">
+        <div>
+          <div class="t-display">Embrace Your<br><em style="font-style:italic;color:var(--gold-primary);">Inner Glow.</em></div>
+        </div>
+        <div class="type-meta">
+          <strong>Display Heading</strong>
+          Font: Cardo<br />
+          Weight: 700<br />
+          Size: clamp(2.25rem, 5vw, 3.5rem)<br />
+          Letter-spacing: <code>-0.03em</code><br />
+          Line-height: <code>1.1</code><br />
+          <br />
+          Italic accent in <code>--gold-primary</code>
+        </div>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div>
+          <div class="t-display-italic">Luxury Nail Care<br />in Santee, CA</div>
+        </div>
+        <div class="type-meta">
+          <strong>Display Italic</strong>
+          Font: Cardo Italic<br />
+          Weight: 400<br />
+          Size: clamp(2rem, 4vw, 3rem)<br />
+          Color: <code>--gold-primary</code><br />
+          Use for quotes, taglines, pull text
+        </div>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div>
+          <div class="t-heading">Manicures · Pedicures · Waxing</div>
+        </div>
+        <div class="type-meta">
+          <strong>Section Heading</strong>
+          Font: Cardo<br />
+          Weight: 700<br />
+          Size: clamp(1.4rem, 2.5vw, 2rem)<br />
+          Letter-spacing: <code>-0.02em</code>
+        </div>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div>
+          <div class="t-kicker-demo">✦ &nbsp;Our Services</div>
+        </div>
+        <div class="type-meta">
+          <strong>Kicker Label</strong>
+          Font: Lato<br />
+          Weight: 700<br />
+          Size: <code>0.72rem</code><br />
+          Letter-spacing: <code>0.18em</code><br />
+          Text-transform: uppercase<br />
+          Color: <code>--gold-primary</code>
+        </div>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div>
+          <div class="t-sub">A relaxing sanctuary for nails,<br />waxing, and spa treatments.</div>
+        </div>
+        <div class="type-meta">
+          <strong>Subheading / Intro</strong>
+          Font: Lato<br />
+          Weight: 300<br />
+          Size: <code>1.125rem</code><br />
+          Letter-spacing: <code>0.02em</code>
+        </div>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div>
+          <div class="t-body">Welcome to LK Nail Salon, your sanctuary for beauty and relaxation in Santee, CA. Our skilled technicians offer exceptional care across manicures, pedicures, gel, acrylic, dipping, shellac, and waxing services.</div>
+        </div>
+        <div class="type-meta">
+          <strong>Body Text</strong>
+          Font: Lato<br />
+          Weight: 400<br />
+          Size: <code>1rem (16px)</code><br />
+          Line-height: <code>1.75</code><br />
+          Color: <code>--mid (#707070)</code>
+        </div>
+      </div>
+
+      <div class="type-specimen reveal">
+        <div>
+          <div class="t-caption">Mon–Sat: 9:00 AM – 7:00 PM &nbsp;·&nbsp; Sun: 10:00 AM – 5:00 PM</div>
+        </div>
+        <div class="type-meta">
+          <strong>Caption / Meta</strong>
+          Font: Lato<br />
+          Weight: 400<br />
+          Size: <code>0.8125rem (13px)</code><br />
+          Color: <code>--subtle (#ABABAB)</code>
+        </div>
+      </div>
+
+      <!-- Type Scale Table -->
+      <div style="margin-top:3rem; background:var(--white); border-radius:var(--radius-lg); overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);">
+        <table class="scale-table">
+          <thead>
+            <tr>
+              <th>Role</th>
+              <th>Font</th>
+              <th>Size</th>
+              <th>Weight</th>
+              <th>Tracking</th>
+              <th>Preview</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Display</td>
+              <td>Cardo</td>
+              <td>3.5rem / 56px</td>
+              <td>700</td>
+              <td>-0.03em</td>
+              <td class="preview-cell" style="font-family:'Cardo',serif;font-size:1.6rem;font-weight:700;letter-spacing:-.03em;">Aa</td>
+            </tr>
+            <tr>
+              <td>H1</td>
+              <td>Cardo</td>
+              <td>2.5rem / 40px</td>
+              <td>700</td>
+              <td>-0.025em</td>
+              <td class="preview-cell" style="font-family:'Cardo',serif;font-size:1.4rem;font-weight:700;letter-spacing:-.025em;">Heading One</td>
+            </tr>
+            <tr>
+              <td>H2</td>
+              <td>Cardo</td>
+              <td>2rem / 32px</td>
+              <td>700</td>
+              <td>-0.02em</td>
+              <td class="preview-cell" style="font-family:'Cardo',serif;font-size:1.2rem;font-weight:700;letter-spacing:-.02em;">Heading Two</td>
+            </tr>
+            <tr>
+              <td>H3</td>
+              <td>Cardo</td>
+              <td>1.5rem / 24px</td>
+              <td>400</td>
+              <td>-0.01em</td>
+              <td class="preview-cell" style="font-family:'Cardo',serif;font-size:1.1rem;letter-spacing:-.01em;">Heading Three</td>
+            </tr>
+            <tr>
+              <td>Intro / Lead</td>
+              <td>Lato</td>
+              <td>1.125rem / 18px</td>
+              <td>300</td>
+              <td>0.02em</td>
+              <td class="preview-cell" style="font-size:.9rem;font-weight:300;">Lead paragraph text</td>
+            </tr>
+            <tr>
+              <td>Body</td>
+              <td>Lato</td>
+              <td>1rem / 16px</td>
+              <td>400</td>
+              <td>0</td>
+              <td class="preview-cell" style="font-size:.875rem;">Regular body copy</td>
+            </tr>
+            <tr>
+              <td>Small</td>
+              <td>Lato</td>
+              <td>0.875rem / 14px</td>
+              <td>400</td>
+              <td>0</td>
+              <td class="preview-cell" style="font-size:.8rem;">Small text, labels</td>
+            </tr>
+            <tr>
+              <td>Caption</td>
+              <td>Lato</td>
+              <td>0.8125rem / 13px</td>
+              <td>400</td>
+              <td>0.01em</td>
+              <td class="preview-cell" style="font-size:.75rem;color:#ABABAB;">Caption / meta info</td>
+            </tr>
+            <tr>
+              <td>Kicker</td>
+              <td>Lato</td>
+              <td>0.72rem / 11.5px</td>
+              <td>700</td>
+              <td>0.18em</td>
+              <td class="preview-cell" style="font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#C1934B;">KICKER LABEL</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BUTTONS ─────────────────────────────────────────── -->
+  <section class="dark-section">
+    <div class="wrap" style="position:relative;">
+      <span class="kicker reveal">UI Components</span>
+      <h2 class="section-title reveal">Buttons & CTAs</h2>
+      <div class="divider reveal"></div>
+
+      <div class="btn-row reveal">
+        <a href="#" class="btn-primary">Book Appointment</a>
+        <a href="#" class="btn-outline">View Services</a>
+        <a href="#" class="btn-ghost" style="color:var(--gold-light);border-color:rgba(193,147,75,0.4);">Learn More</a>
+      </div>
+
+      <div style="margin-top:2.5rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;">
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(193,147,75,.15);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;">
+          <p class="kicker" style="margin-bottom:.5rem;">Primary Button</p>
+          <p style="font-size:.8rem;color:var(--subtle);line-height:1.6;">Gold gradient fill · Dark text · Use for main conversion actions: <em>Book, Get Quote, Contact</em></p>
+          <p style="font-size:.72rem;color:var(--gold-deep);margin-top:.5rem;font-family:monospace;">box-shadow: 0 4px 18px rgba(193,147,75,.35)</p>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(193,147,75,.15);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;">
+          <p class="kicker" style="margin-bottom:.5rem;">Outline Button</p>
+          <p style="font-size:.8rem;color:var(--subtle);line-height:1.6;">Gold border · No fill · Use for secondary actions on dark backgrounds: <em>View Services, Gallery</em></p>
+        </div>
+        <div style="background:rgba(255,255,255,.04);border:1px solid rgba(193,147,75,.15);border-radius:var(--radius-lg);padding:1.25rem 1.5rem;">
+          <p class="kicker" style="margin-bottom:.5rem;">Ghost Button</p>
+          <p style="font-size:.8rem;color:var(--subtle);line-height:1.6;">Subtle border · Transparent fill · Use for tertiary or low-priority actions: <em>Learn More</em></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SPACING ─────────────────────────────────────────── -->
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Layout System</span>
+      <h2 class="section-title reveal">Spacing & Layout</h2>
+      <div class="divider reveal"></div>
+
+      <div style="background:var(--white);border-radius:var(--radius-lg);padding:2rem 2.25rem;box-shadow:0 2px 8px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);">
+        <div class="spacing-row">
+          <div class="spacing-item reveal">
+            <span class="spacing-name">Section padding</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width:100%;"></div>
+              <span class="spacing-label">clamp(4rem, 8vw, 7rem)</span>
+            </div>
+          </div>
+          <div class="spacing-item reveal">
+            <span class="spacing-name">Content width</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width:80%;"></div>
+              <span class="spacing-label">min(1100px, 92vw)</span>
+            </div>
+          </div>
+          <div class="spacing-item reveal">
+            <span class="spacing-name">Card gap</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width:30%;"></div>
+              <span class="spacing-label">clamp(1rem, 2.5vw, 1.75rem)</span>
+            </div>
+          </div>
+          <div class="spacing-item reveal">
+            <span class="spacing-name">Component gap</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width:20%;"></div>
+              <span class="spacing-label">1.25rem</span>
+            </div>
+          </div>
+          <div class="spacing-item reveal">
+            <span class="spacing-name">Inner padding</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width:16%;"></div>
+              <span class="spacing-label">1rem – 2rem</span>
+            </div>
+          </div>
+          <div class="spacing-item reveal">
+            <span class="spacing-name">Text gap</span>
+            <div class="spacing-bar-wrap">
+              <div class="spacing-bar" style="width:8%;"></div>
+              <span class="spacing-label">0.5rem</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(0,0,0,.06);">
+          <p class="kicker" style="margin-bottom:.75rem;">Border Radius</p>
+          <div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;">
+            <div style="text-align:center;">
+              <div style="width:60px;height:60px;background:var(--gold-dim);border:1.5px solid var(--gold-primary);border-radius:4px;margin:0 auto .5rem;"></div>
+              <span style="font-size:.72rem;color:var(--mid);">4px<br>Buttons</span>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:60px;height:60px;background:var(--gold-dim);border:1.5px solid var(--gold-primary);border-radius:10px;margin:0 auto .5rem;"></div>
+              <span style="font-size:.72rem;color:var(--mid);">10px<br>Cards</span>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:60px;height:60px;background:var(--gold-dim);border:1.5px solid var(--gold-primary);border-radius:16px;margin:0 auto .5rem;"></div>
+              <span style="font-size:.72rem;color:var(--mid);">16px<br>Large panels</span>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:60px;height:60px;background:var(--gold-dim);border:1.5px solid var(--gold-primary);border-radius:9999px;margin:0 auto .5rem;"></div>
+              <span style="font-size:.72rem;color:var(--mid);">9999px<br>Pills / badges</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DO / DON'T ─────────────────────────────────────── -->
+  <section>
+    <div class="wrap">
+      <span class="kicker reveal">Usage Rules</span>
+      <h2 class="section-title reveal">Do & Don't</h2>
+      <div class="divider reveal"></div>
+
+      <div class="rules-grid">
+        <div class="rule-card do reveal">
+          <span class="rule-tag">✓ Do</span>
+          <ul>
+            <li>Use Cardo for all headings and display text</li>
+            <li>Pair Cardo headings with Lato body copy</li>
+            <li>Use the signature gold gradient for primary CTAs</li>
+            <li>Place the logo on dark (#1B1D1C) or gold gradient backgrounds</li>
+            <li>Apply tight letter-spacing (–0.03em) to large headings</li>
+            <li>Layer shadows with brand-tinted colors, not flat grey</li>
+            <li>Use kicker labels (uppercase Lato) before every section heading</li>
+            <li>Only animate <code>transform</code> and <code>opacity</code></li>
+            <li>Provide hover, focus-visible, and active states on all interactive elements</li>
+          </ul>
+        </div>
+        <div class="rule-card dont reveal">
+          <span class="rule-tag">✗ Don't</span>
+          <ul>
+            <li>Use blue, purple, teal, green, or generic default palette colors</li>
+            <li>Use the same font for both headings and body text</li>
+            <li>Use <code>transition-all</code> — always specify exact properties</li>
+            <li>Place the logo on busy, patterned, or low-contrast backgrounds</li>
+            <li>Stretch, rotate, recolor, or crop the logo mark</li>
+            <li>Use flat single-color shadows (shadow-md without color tint)</li>
+            <li>Use inconsistent spacing — always reference the spacing tokens</li>
+            <li>Mix multiple script or display fonts — Dream Avenue is logo-only</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ANIMATION TOKENS ────────────────────────────────── -->
+  <section class="dark-section">
+    <div class="wrap" style="position:relative;">
+      <span class="kicker reveal">Motion System</span>
+      <h2 class="section-title reveal">Animation & Motion</h2>
+      <div class="divider reveal"></div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem;">
+        <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(193,147,75,.15);border-radius:var(--radius-lg);padding:1.5rem;">
+          <p class="kicker" style="margin-bottom:.75rem;">Ease Out (Reveals)</p>
+          <p style="font-size:.8rem;color:var(--subtle);line-height:1.6;">For entrances, scroll reveals, page transitions.</p>
+          <p style="font-size:.72rem;color:var(--gold-pale);margin-top:.75rem;font-family:monospace;">cubic-bezier(0.16, 1, 0.3, 1)</p>
+        </div>
+        <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(193,147,75,.15);border-radius:var(--radius-lg);padding:1.5rem;">
+          <p class="kicker" style="margin-bottom:.75rem;">Ease Back (Interactive)</p>
+          <p style="font-size:.8rem;color:var(--subtle);line-height:1.6;">For hover scale, bounce, micro-interactions.</p>
+          <p style="font-size:.72rem;color:var(--gold-pale);margin-top:.75rem;font-family:monospace;">cubic-bezier(0.34, 1.56, 0.64, 1)</p>
+        </div>
+        <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(193,147,75,.15);border-radius:var(--radius-lg);padding:1.5rem;">
+          <p class="kicker" style="margin-bottom:.75rem;">Duration Tokens</p>
+          <p style="font-size:.8rem;color:var(--subtle);line-height:1.6;">Micro: 150ms · Standard: 250ms · Reveal: 600ms · Stagger: +70ms per child</p>
+        </div>
+        <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(193,147,75,.15);border-radius:var(--radius-lg);padding:1.5rem;">
+          <p class="kicker" style="margin-bottom:.75rem;">Properties to Animate</p>
+          <p style="font-size:.8rem;color:var(--subtle);line-height:1.6;">Only <code style="color:var(--gold-pale);">transform</code> and <code style="color:var(--gold-pale);">opacity</code>. Never layout properties. Never <code style="color:#e88;">transition-all</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ──────────────────────────────────────────── -->
+  <footer>
+    <p>LK Nail Salon &nbsp;<span>·</span>&nbsp; Brand Guidelines v1.0 &nbsp;<span>·</span>&nbsp; Santee, CA 92071</p>
+  </footer>
+
+  <script>
+    // Activate animations only after page load (keeps elements visible for full-page screenshots)
+    window.addEventListener('load', () => {
+      document.body.classList.add('js-ready');
+
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach((el, i) => {
+        el.style.transitionDelay = `${(i % 6) * 0.07}s`;
+        observer.observe(el);
+      });
+    });
+  </script>
+</body>
+</html>
